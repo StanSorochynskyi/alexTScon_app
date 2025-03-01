@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block container %}
+    <h2>Create New Project</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <h3>Upload Photos</h3>
+        {{ formset.management_form }}
+        {% for form in formset %}
+            {{ form.as_p }}
+        {% endfor %}
+        <button type="submit">Save Project</button>
+    </form>
+    <a href="{% url 'project_list' %}">Cancel</a>
+{% endblock container %}

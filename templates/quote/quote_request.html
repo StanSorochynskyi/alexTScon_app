@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
+
+{% block title %}
+   Photo Gallery
+{% endblock title %}
+
+{% block container %}
 <head>
     <title>Request a Quote</title>
     <script>
@@ -27,8 +32,8 @@
     <form id="quote-form" onsubmit="submitForm(event)">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Submit</button>
+        <button type="submit" class="quote-button">Submit</button>
     </form>    
     <p id="response"></p>
 </body>
-</html>
+{% endblock container %}
