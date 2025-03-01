@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('gallery.urls')),  # Make sure 'gallery.urls' is included
+    path("quote/", include("quote.urls")),
 ]
 
 if settings.DEBUG:

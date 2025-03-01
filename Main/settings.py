@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'quote',
     'gallery',  # Add this
 ]
 
@@ -117,6 +118,8 @@ USE_L10N = True
 USE_TZ = True
 
 #Media
+
+DEBUG = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
