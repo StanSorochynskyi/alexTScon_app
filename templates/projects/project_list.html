@@ -2,11 +2,20 @@
 
 {% block container %}
     <h2>Projects</h2>
-    <ul>
-        {% for project in projects %}
-            <li>
-                <a href="{% url 'project_detail' project.pk %}">{{ project.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <ul class="project-list">
+            {% for project in projects %}
+                <li class="project-item">
+                    <a href="{% url 'project_detail' project.pk %}">{{ project.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <script>
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            details.style.display = (details.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
 {% endblock container %}
