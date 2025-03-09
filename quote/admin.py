@@ -2,7 +2,11 @@ from django.contrib import admin
 from .models import QuoteRequest
 
 class QuoteRequestAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'details', 'created_at')
-    list_filter = ('name', 'email', 'details', 'created_at')
+    list_display = ('contact_name', 'company_name', 'address',
+                    'website', 'email', 'phone_number',
+                    'quote_number', 'date', 'description')
+    list_filter = ('contact_name', 'company_name', 'address',
+                    'website', 'email', 'phone_number',
+                    'quote_number', 'date', 'description')
 
 admin.site.register(QuoteRequest, QuoteRequestAdmin)
