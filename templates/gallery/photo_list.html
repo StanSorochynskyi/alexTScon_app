@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %}
    Photo Gallery
 {% endblock title %}
@@ -9,7 +8,7 @@
     <h1>Photo Gallery</h1>
     <div class="gallery">
         {% for photo in photos %}
-            <div class="photo">
+            <div class="gallery-item">
                 <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
             </div>
         {% endfor %}

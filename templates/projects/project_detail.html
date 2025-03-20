@@ -7,7 +7,9 @@
     <h3>Photos</h3>
     <div class="gallery">
         {% for photo in project.photos.all %}
-            <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" width="300">
+            <div class="gallery-item">
+                <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" width="300">
+            </div>
         {% endfor %}
     </div>
     
