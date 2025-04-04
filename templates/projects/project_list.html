@@ -1,17 +1,35 @@
 {% extends "base.html" %}
 
 {% block container %}
-    <h2>Projects</h2>
-    <div class="container">
-        <ul class="project-list">
-            {% for project in projects %}
-                <li class="project-item">
-                    <a href="{% url 'project_detail' project.pk %}">{{ project.name }}</a>
-                </li>
-            {% endfor %}
-        </ul>
+    <div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Projects</h6>
+                <div class="row">
+                    {% for project in projects %}
+                        <div class="col-6 col-md-4 col-lg-3 mb-3"> <!-- Grid system for responsive columns -->
+                            <a href="{% url 'project_detail' project.pk %}" class="btn btn-outline-primary w-100">
+                                {{ project.name }}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Chart Start -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-6">
+                    <div class="rounded h-100 p-4">
+                        <img src="{% url 'work_metrics_chart' %}" alt="Work Metrics Chart" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Chart End -->
     </div>
-    
     <script>
         function toggleDetails(id) {
             var details = document.getElementById(id);

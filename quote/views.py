@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views import View
 from .forms import QuoteRequestForm
-from .models import QuoteRequest
 
 class RequestQuoteView(View):
     def get(self, request):

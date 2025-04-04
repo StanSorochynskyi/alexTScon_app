@@ -1,6 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Project, Photo
 from .forms import ProjectForm, PhotoFormSet
+import matplotlib.pyplot as plt
+from django.http import HttpResponse
+from collections import Counter
+import io
 
 def project_list(request):
     """View to list all projects"""
@@ -30,3 +34,24 @@ def create_project(request):
         formset = PhotoFormSet()
 
     return render(request, 'projects/project_form.html', {'form': form, 'formset': formset})
+
+def work_metrics_chart(request):
+    # Get work type counts
+    work_types = Project.objects.values_list("type_of_work", flat=True)
+    work_count = dict(Counter(work_types))
+
+    labels = list(work_count.keys())
+    sizes = list(work_count.values())
+
+    # Create pie chart
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, autopct="%1.1f%%", startangle=90, colors=["#4BA3F0", "#76C2AF", "#F4A261", "#2A9D8F", "#E76F51"])
+    ax.axis("equal")  # Equal aspect ratio ensures that pie is drawn as a circle
+
+    # Save image to a buffer
+    buffer = io.BytesIO()
+    plt.savefig(buffer, format="png")
+    plt.close(fig)  # Close figure to free memory
+    buffer.seek(0)
+
+    return HttpResponse(buffer.getvalue(), content_type="image/png")

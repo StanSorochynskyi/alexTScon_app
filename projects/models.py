@@ -1,7 +1,18 @@
 from django.db import models
 
 class Project(models.Model):
-    name = models.CharField(max_length=255)
+    WORK_TYPES = [
+        ("flooring", "Flooring"),
+        ("electrical", "Electrical"),
+        ("plumbing", "Plumbing"),
+        ("carpentry", "Carpentry"),
+        ("painting", "Painting"),
+        ("roofing", "Roofing"),
+        # Add more as needed
+    ]
+
+    type_of_work = models.CharField(max_length=50, choices=WORK_TYPES, default="flooring", null=True, blank=True)
+    name = models.CharField(max_length=255, default=" ", null=True)
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):

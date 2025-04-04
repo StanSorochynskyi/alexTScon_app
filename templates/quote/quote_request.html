@@ -28,12 +28,21 @@
     </script>
 </head>
 <body>
-    <h2>Request a Quote</h2>
+    </form>
+
     <form id="quote-form" onsubmit="submitForm(event)">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="quote-button">Submit</button>
-    </form>    
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-6">
+                <div class="bg-light rounded h-100 p-4">
+                    <h6 class="mb-4">Request a Quote</h6>
+                    {{ form.as_p }}
+                    <button style="margin-top: 15px" type="submit" class="btn btn-primary quote-button">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
     <p id="response"></p>
+
 </body>
 {% endblock container %}
