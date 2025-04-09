@@ -64,6 +64,7 @@
                     <a href="/" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Home</a>
                     <a href="{{ '/quote/' }}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Request a Quote</a>
                     <a href="{{ '/projects/' }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Projects</a>
+                    <a href="mailto:alex.tscon@gmail.com" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>Email to me!</a>
                 </div>
             </nav>
         </div>
@@ -74,15 +75,16 @@
         <div class="content">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
-                </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
                 <form class="d-none d-md-flex ms-4">
                     <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
+
+                <div class="nav-item dropdown">
+                    <img class="rounded-circle" src="{% static 'img/logo.png' %}" alt="" style="margin-left: 50%; width: 40px; height: 40px;">
+                </div>
             </nav>
             <!-- Navbar End -->
 
@@ -90,6 +92,18 @@
                 {% block container %}
 
                 {% endblock container %}
+            </div>
+
+            <section id="contact" class="s-contact target-section">
+                <div class="row contact-bottom">
+                    <div class="column lg-4 md-12 contact-block">
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="m-n2">
+
             </div>
 
             <!-- Footer Start -->
