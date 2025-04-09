@@ -37,12 +37,12 @@
             <div class="gallery">
                 {% for photo in photos %}
                     <div class="gallery-item">
-                        <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                        <a href="{{ photo.image.url }}" data-lightbox="gallery" data-title="{{ photo.title }}">
+                            <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="img-fluid">
+                        </a>
                     </div>
                 {% endfor %}
             </div>
         </div>
     </div>
 {% endblock container %}
-
-
