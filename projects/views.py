@@ -8,8 +8,15 @@ import io
 
 def project_list(request):
     """View to list all projects"""
-    projects = Project.objects.all()
-    return render(request, 'projects/project_list.html', {'projects': projects})
+    projects = Project.objects.all().order_by('type_of_work')
+
+    grouped_projects = {}
+    for project in projects:
+        if project.type_of_work not in grouped_projects:
+            grouped_projects[project.type_of_work] = []
+        grouped_projects[project.type_of_work].append(project)
+
+    return render(request, 'projects/project_list.html', {'grouped_projects': grouped_projects})
 
 def project_detail(request, pk):
     """View to show details of a project along with its photos"""
