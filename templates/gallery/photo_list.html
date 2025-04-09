@@ -5,13 +5,43 @@
 {% endblock title %}
 
 {% block container %}
-    <h1>Photo Gallery</h1>
-    <div class="gallery">
-        {% for photo in photos %}
-            <div class="gallery-item">
-                <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+    <!-- Recent Sales Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Advertize</h6>
+                <a href="">Show All</a>
             </div>
-        {% endfor %}
+            <p>Advertize text</p>
+        </div>
+    </div>
+    <!-- Recent Sales End -->
+
+    <!-- Recent Sales Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="text-center rounded p-4"> <!--bg-light-->
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Advertize</h6>
+                <a href="">Show All</a>
+            </div>
+            <p>Advertize text</p>
+        </div>
+    </div>
+    <!-- Recent Sales End -->
+
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Photo Gallery</h6>
+            </div>
+            <div class="gallery">
+                {% for photo in photos %}
+                    <div class="gallery-item">
+                        <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock container %}
 
