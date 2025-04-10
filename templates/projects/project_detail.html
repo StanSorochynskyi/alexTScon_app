@@ -6,9 +6,7 @@
         <div class="bg-light text-center rounded p-4">
             <h2>{{ project.name }}</h2>
             <p>{{ project.description }}</p>
-            <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">Photos</h6>
-            </div>
+
             <div class="gallery">
                 {% for photo in project.photos.all %}
                     <div class="gallery-item">
