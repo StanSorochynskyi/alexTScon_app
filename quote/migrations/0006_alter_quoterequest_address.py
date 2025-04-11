@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='quoterequest',
             name='address',
-            field=models.CharField(default=' ', max_length=255),
+            field=models.CharField(null=True, blank=True, max_length=255),
         ),
     ]
