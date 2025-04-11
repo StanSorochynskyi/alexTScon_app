@@ -1,5 +1,8 @@
 from django.db import models
 
+class Ad1(models.Model):
+    pass
+
 class Photo(models.Model):
     title = models.TextField(blank=True)
     description = models.TextField(blank=True)
@@ -8,4 +11,3 @@ class Photo(models.Model):
 
     def __str__(self):
         return self.title
-# models.CharField(max_length=255)

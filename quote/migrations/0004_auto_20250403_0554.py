@@ -16,31 +16,31 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='quoterequest',
             name='address',
-            field=models.TextField(default=' '),
+            field=models.TextField(null=True, blank=True),
         ),
         migrations.AlterField(
             model_name='quoterequest',
             name='company_name',
-            field=models.CharField(default=' ', max_length=255),
+            field=models.CharField(null=True, blank=True, max_length=255),
         ),
         migrations.AlterField(
             model_name='quoterequest',
             name='contact_name',
-            field=models.CharField(default=' ', max_length=255),
+            field=models.CharField(null=True, blank=True, max_length=255),
         ),
         migrations.AlterField(
             model_name='quoterequest',
             name='description',
-            field=models.TextField(default=' '),
+            field=models.TextField(null=True, blank=True),
         ),
         migrations.AlterField(
             model_name='quoterequest',
             name='phone_number',
-            field=models.CharField(default=' ', max_length=50),
+            field=models.CharField(null=True, blank=True, max_length=50),
         ),
         migrations.AlterField(
             model_name='quoterequest',
             name='quote_number',
-            field=models.CharField(default=' ', max_length=50, unique=True),
+            field=models.CharField(null=True, blank=True, max_length=50, unique=True),
         ),
     ]

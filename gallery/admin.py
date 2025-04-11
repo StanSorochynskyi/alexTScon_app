@@ -13,3 +13,5 @@ class PhotoAdmin(admin.ModelAdmin):
     
     image_preview.allow_tags = True
     image_preview.short_description = "Preview"
+
+
