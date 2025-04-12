@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Photo
+from .models import Photo, Advertize, Annonsment
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
@@ -15,3 +15,12 @@ class PhotoAdmin(admin.ModelAdmin):
     image_preview.short_description = "Preview"
 
 
+@admin.register(Advertize)
+class AdvertizeAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'image', 'link')
+    search_fields = ('title', 'description', 'image', 'link')
+
+@admin.register(Annonsment)
+class AnnonsmentAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'link')
+    search_fields = ('title', 'description', 'link')

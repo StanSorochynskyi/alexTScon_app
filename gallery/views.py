@@ -1,7 +1,15 @@
 from django.shortcuts import render
-from .models import Photo
+from .models import Photo, Annonsment, Advertize
 
 
-def photo_list(request):
+def all_content_view(request):
     photos = Photo.objects.all()
-    return render(request, 'gallery/photo_list.html', {'photos': photos})
+    advertizes = Advertize.objects.all()
+    anonsments = Annonsment.objects.all()
+
+    context = {
+        'photos': photos,
+        'advertizes': advertizes,
+        'anonsments': anonsments,
+    }
+    return render(request, 'gallery/photo_list.html', context)
