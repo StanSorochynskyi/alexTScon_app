@@ -37,6 +37,45 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link href="{% static 'css/img.css' %}" rel="stylesheet">
 
+    <style>
+        img:hover {
+            transform: scale(1.01);
+            transition: transform 0.3s ease;
+        }
+        .call-button {
+            position: fixed;
+            bottom: 110px;
+            right: 45px;
+            background-color: #3599dc;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            z-index: 1050;
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .call-button:hover {
+            transform: scale(1.1);
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Анимация мигания */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .blink {
+            animation: blink 2s infinite;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -52,7 +91,7 @@
 
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-light navbar-light">
+            <nav style="padding-top: 20%" class="navbar bg-light navbar-light">
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle" src="{% static 'img/logo.png' %}" alt="" style="width: 80px; height: 80px;">
@@ -68,9 +107,9 @@
                     <a href="/" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Home</a>
                     <a href="{{ '/quote/' }}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Request a Quote</a>
                     <a href="{{ '/projects/' }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Projects</a>
-                    <a href="mailto:alex.tscon@gmail.com" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>Email</a>
                     <a href="https://www.instagram.com/alex_ts_construction" target="_blank" class="nav-item nav-link"><i class="fab fa-instagram"></i>Instagram</a>
-                    <a href="tel:+2066378482" class="nav-item nav-link"><i class="fas fa-phone"></i>Call</a>
+                    <a href="mailto:alex.tscon@gmail.com" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>Email</a>
+                    <a href="tel:+12066378482" class="nav-item nav-link"><i class="fas fa-phone"></i>Call</a>
                 </div>
             </nav>
         </div>
@@ -87,10 +126,16 @@
                 <form class="d-none d-md-flex ms-4">
                     <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
+                <a href="mailto:alex.tscon@gmail.com" style="padding-left: 45px" class="nav-item nav-link">
+                    <i class="fa fa-laptop me-2"></i>
+                </a>
+                <a href="tel:+12066378482" class="nav-item nav-link">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <span class="text-muted small ms-3 me-2  d-md-inline">
+                    <i class="far fa-clock me-1"></i>Mon–Fri: 6am–6pm
+                </span>
 
-                <div class="nav-item dropdown">
-                    <img class="rounded-circle" src="{% static 'img/logo.png' %}" alt="" style="margin-left: 50%; width: 40px; height: 40px;">
-                </div>
             </nav>
             <!-- Navbar End -->
 
@@ -99,6 +144,10 @@
 
                 {% endblock container %}
             </div>
+
+            <a href="tel:+12066378482" class="call-button" title="Позвонить">
+                <i class="fa fa-phone blink"></i>
+            </a>
 
             <section id="contact" class="s-contact target-section">
                 <div class="row contact-bottom">

@@ -1,5 +1,13 @@
 from django.db import models
 
+class Promo(models.Model):
+    title = models.TextField(blank=True)
+    description = models.TextField(blank=True)
+    link = models.CharField(blank=True, max_length=1000)
+
+    def __str__(self):
+        return f"Promo for {self.title}"
+
 class Advertize(models.Model):
     title = models.TextField(blank=True)
     description = models.TextField(blank=True)
@@ -25,3 +33,11 @@ class Photo(models.Model):
 
     def __str__(self):
         return self.title
+
+class Contact(models.Model):
+    title = models.TextField(blank=True)
+    description = models.TextField(blank=True)
+    link = models.CharField(blank=True, max_length=1000)
+
+    def __str__(self):
+        return f"Contact for {self.title}"

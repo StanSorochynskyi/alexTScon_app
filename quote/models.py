@@ -4,6 +4,7 @@ from django.db import IntegrityError
 import itertools
 
 class QuoteRequest(models.Model):
+    processed = models.BooleanField(default=False)
     contact_name = models.CharField(max_length=255, default=" ")
     address = models.CharField(max_length=255, default=" ")
     email = models.EmailField()
