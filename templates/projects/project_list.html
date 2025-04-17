@@ -3,12 +3,12 @@
 {% block container %}
     <div>
         <div class="col-sm-12 col-xl-6">
-            <div class="rounded h-100 p-4">
+            <div class="rounded h-100 p-1">
                 {% for type_of_work, projects in grouped_projects.items %}
                     <h6 class="mb-4">{{ type_of_work|capfirst }}</h6>
                     <div class="row">
                         {% for project in projects %}
-                            <div class="col-6 col-md-4 col-lg-3 mb-3"> <!-- Grid system for responsive columns -->
+                            <div class="col-6 col-md-4 col-lg-3 mb-2"> <!-- Grid system for responsive columns -->
                                 <a href="{% url 'project_detail' project.pk %}" class="btn btn-outline-primary w-100">
                                     {{ project.name }}
                                 </a>
@@ -21,11 +21,11 @@
 
 
         <!-- Chart Start -->
-        <div class="container-fluid pt-4 px-4">
+        <div class="container-fluid pt-1 px-1">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-lg-8">
                     <div class="bg-white rounded shadow-sm p-4 text-center">
-                        <h5 class="mb-3">Work Metrics Overview</h5>
+                        <h5 class="mb-1">Work Metrics Overview</h5>
                         <img src="{% url 'work_metrics_chart' %}" alt="Work Metrics Chart" class="img-fluid rounded">
                     </div>
                 </div>

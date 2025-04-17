@@ -6,45 +6,43 @@
 
 {% block container %}
 
-    <div class="col-sm-12 col-xl-6">
-        <div class="bg-light rounded h-100 p-4">
+   <!-- PROMOS as message bubbles -->
+    <div class="col-sm-12 col-xl-6 px-0 mb-2">
+        <div class="bg-white rounded-0 p-1 w-100">
             {% for promo in promos %}
-                <div class=" rounded p-4 pb-0 mb-4">
-                    <figure>
-                        <blockquote class="blockquote">
-                            <p>{{ promo.title }}</p>
-                            <p>{{ promo.description }}</p>
-                        </blockquote>
-                        {% if promo.link %}
-                            <a href="{{ promo.link }}" target="_blank">
-                                <figcaption class="blockquote-footer">
-                                    Send us a message to have <cite title="Source Title">More Info</cite>
-                                </figcaption>
-                            </a>
-                        {% endif %}
-                    </figure>
+                <div class="d-flex justify-content-center mb-3 px-2 w-100">
+                    <div class="bg-primary text-white rounded-4 shadow-lg px-4 py-3 w-100" style="max-width: 600px;">
+                        <div class="text-center">
+                            <h5 class="fw-semibold mb-2">{{ promo.title }}</h5>
+                            <p class="mb-2">{{ promo.description }}</p>
+                            {% if promo.link %}
+                                <a href="{{ promo.link }}" target="_blank" class="text-white">
+                                    <small>📎 More Info</small>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
         </div>
     </div>
 
-
-    <div class="container-fluid py-4">
+    <!-- CAROUSEL -->
+    <div class="container-fluid px-0 py-2">
         <div id="advertizeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-            <div class="carousel-inner">
+            <div class="carousel-inner rounded shadow mx-1">
                 {% for advert in advertizes %}
                 <div class="carousel-item {% if forloop.first %}active{% endif %}">
                     <div class="d-flex align-items-center justify-content-center text-white"
                          style="background-image: url('{{ advert.image.url }}');
                                 background-size: cover;
                                 background-position: center;
-                                height: 500px; border-radius: 15px;">
-                        <div class="d-flex flex-column align-items-center text-center"
-                             style="background: rgba(0, 0, 0, 0.6); padding: 30px; border-radius: 10px;">
-                            <h4 class="text-white" >{{ advert.title }}</h4>
-                            <p>{{ advert.description }}</p>
+                                height: 500px;">
+                        <div class="text-center p-4 rounded" style="background: rgba(0,0,0,0.6); max-width: 90%;">
+                            <h2 class="text-white mb-2">{{ advert.title }}</h2>
+                            <p class="mb-3">{{ advert.description }}</p>
                             {% if advert.link %}
-                            <a href="{{ advert.link }}" class="btn btn-outline-light mt-2" target="_blank">Follow</a>
+                            <a href="{{ advert.link }}" class="btn btn-outline-light" target="_blank">Follow</a>
                             {% endif %}
                         </div>
                     </div>
@@ -60,58 +58,36 @@
         </div>
     </div>
 
+    <!-- ANNOUNCEMENTS -->
     {% if anonsments %}
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                {% for ann in anonsments %}
-                <div class="col-md-6 col-lg-4">
-                    <div class=" text-center rounded p-4 h-100">
-                        <h5 class="mb-3">{{ ann.title }}</h5>
-                        <p>{{ ann.description }}</p>
-                        {% if ann.link %}
-                            <a href="{{ ann.link }}" class="btn btn-primary mt-2" target="_blank">Follow</a>
-                        {% endif %}
-                    </div>
+    <div class="container-fluid px-0 py-2">
+        <div class="row g-3 mx-0">
+            {% for ann in anonsments %}
+            <div class="col-12 col-md-6 col-lg-4 px-2">
+                <div class="bg-light text-center rounded shadow-sm p-4 h-100">
+                    <h4 class="mb-2">{{ ann.title }}</h4>
+                    <p>{{ ann.description }}</p>
+                    {% if ann.link %}
+                    <a href="{{ ann.link }}" class="btn btn-primary mt-2" target="_blank">Follow</a>
+                    {% endif %}
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         </div>
+    </div>
     {% endif %}
 
-    <div style="margin-left: 2%" class="container py-4">
-        <div class="row g-1">
+    <!-- PHOTO GALLERY -->
+    <div class="container-fluid px-0 py-2">
+        <div class="row g-2 mx-0">
             {% for photo in photos %}
-                <div class="gallery-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a href="{{ photo.image.url }}" data-lightbox="gallery" data-title="{{ photo.title }}">
-                        <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="img-fluid rounded shadow-sm">
-                    </a>
-                </div>
+            <div class="col-6 col-md-4 col-lg-3 px-1">
+                <a href="{{ photo.image.url }}" data-lightbox="gallery" data-title="{{ photo.title }}">
+                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="img-fluid rounded shadow-sm w-100">
+                </a>
+            </div>
             {% endfor %}
         </div>
     </div>
 
-
-    <div class="container py-5 d-flex justify-content-center">
-        <div class="w-100" style="max-width: 800px;">
-            <div class="table-responsive">
-                <table class="table table-hover shadow-sm bg-white rounded text-center align-middle">
-                    <tbody>
-                        {% for contact in contacts %}
-                        <tr>
-                            <td>{{ contact.title }}</td>
-                            <td>{{ contact.description }}</td>
-                            <td>
-                                {% if contact.link %}
-                                    <a href="{{ contact.link }}" target="_blank" class="btn btn-outline-primary m-2">Follow</a>
-                                {% else %}
-                                    —
-                                {% endif %}
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
 {% endblock container %}
